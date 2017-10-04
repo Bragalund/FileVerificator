@@ -21,6 +21,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include "md5.h"
+#include "md5.c"
 
 bool validationIsGood(int iArgc, char *iArgv[], char *command);
 
@@ -30,7 +32,7 @@ bool removeChecksumFromFile(char *filename, char *checksum);
 
 bool checkIfChecksumInEndOfFile();
 
-bool calculateMD5Checksum(FILE file);
+MD5_CTX calculateMD5Checksum(char *filename, MD5_CTX *ctx);
 
 bool stripMD5ChecksumFromFile(FILE file);
 
@@ -39,14 +41,24 @@ int main(int iArgc, char *iArgv[]) {
 
     printf("Program started.\n");
 
-    //Definerer peker til kommando
-    char *command = malloc(6 * sizeof(char));
+
+    char *command = malloc(6 * sizeof(char));   // Definerer peker til kommando
+
 
     printf("Allocated memory for the *command\n");
 
     if (validationIsGood(iArgc, iArgv, *command)) {
         strcpy(command, iArgv[1]);
         printf("Command is: %s\n", command);
+
+        char *filename = malloc(sizeof(iArgv[2]));
+        *filename = (char)iArgv[2];
+
+        printf("Filnavnet er: %s", filename);
+
+        // Lager MD5-objekt
+        MD5_CTX *ctx = NULL;
+        *ctx = calculateMD5Checksum(filename, ctx);
 
         if (strcmp(command, "-add") == 0) {
             printf("-add command was executed. \n");
@@ -59,13 +71,15 @@ int main(int iArgc, char *iArgv[]) {
         } else if (strcmp(command, "-strip") == 0) {
             printf("-strip command was executed. \n");
 
-
         }
+
         // Ingen else, for sikkerhets skyld.
+
+        free(filename);   //Fjerner filename fra heap
     }
 
 
-    free(command);
+    free(command);        // Fjerner command fra heap
 
     return 0;
 }
@@ -119,10 +133,11 @@ bool validationIsGood(int iArgc, char *iArgv[], char *command) {
 }
 
 bool addChecksumToFile(char *filename, char *checksum) {
-    FILE *fp = NULL;                    //Deklarerer filåpner
-    fp = fopen(filename, "a");          //bruker append
-    fprintf(fp, "%s", checksum);        // writes md5 checksum to file
-    fclose(fp);                         //Lukker fil
+    FILE *fp = NULL;                    // Deklarerer filåpner
+    fp = fopen(filename, "a");          // Bruker append
+
+    fprintf(fp, "%s", checksum);        // Skriver MD5 checksum til fil
+    fclose(fp);                         // Lukker fil
 }
 
 bool removeChecksumFromFile(char *filename, char *checksum) {}
@@ -131,7 +146,35 @@ bool checkIfChecksumInEndOfFile() {
 
 }
 
-bool calculateMD5Checksum(FILE file) {
+MD5_CTX calculateMD5Checksum(char *filename, MD5_CTX *ctx) {
+    printf("Gikk inn i calculateMD5Checksum-metoden \n");
+    md5_init(ctx);
+    FILE *fr = NULL;
+    long size = 0;
+    char *buffer;
+
+    printf("Har deklarert alle metodene i calculateMD5Checksum-metoden \n");
+
+    fr = fopen(filename, "rb");
+    fseek(fr, 0, SEEK_END);     // Søk til slutten av filen
+    size = ftell(fr);           // Få filpekerens verdi
+    fseek(fr, 0, SEEK_SET);     // Søk tilbake til starten av filen
+    printf("Har åpnet filen %s og funnet størrelsen på filen(%ld) \n", filename, size);
+
+    ulong unsignedSize = (ulong) size;   // Gjør om long til unsigned long
+    printf("Konvertert size(%ld) om til unsignedSize(%lu) \n", size, unsignedSize);
+
+    buffer = (char *) malloc((size + 1) * sizeof(char)); // Allokerer nok minne for filen og \0
+    fread(buffer, unsignedSize, 1, fr);             // Legger inn filen i det allokerte minnet
+
+    md5_update(ctx, *buffer, unsignedSize);         // Lager Hash av fil
+    printf("Har lagt til hash i ctx med MD5_update-metoden \n");
+
+    fclose(fr);
+    free(buffer);
+
+    printf("Har lukket fil og frigjort minne for buffer. \n");
+    return *ctx;
 
 }
 
