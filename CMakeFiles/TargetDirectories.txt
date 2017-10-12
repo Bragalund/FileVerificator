@@ -1,0 +1,3 @@
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/rebuild_cache.dir
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/edit_cache.dir
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir

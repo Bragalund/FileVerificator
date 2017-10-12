@@ -21,12 +21,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include "md5.h"
-#include "md5.c"
+#include "ValidateInput.h"
+#include "FileChanger.h"
 
-
-void printHashToFile(const BYTE *hash, FILE *file);
 
 void printHash(BYTE *hash);
 
@@ -39,8 +37,6 @@ void getLastPartOfFile(char *filename, char *lastPartOfFile);
 long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved);
 
 long getSizeOfFile(char *filename);
-
-bool validationIsGood(int iArgc, char *iArgv[], char *command);
 
 bool addChecksumToFile(char *filename, BYTE *checksum);
 
@@ -112,54 +108,7 @@ int main(int iArgc, char *iArgv[]) {
     return 0;
 }
 
-bool validationIsGood(int iArgc, char *iArgv[], char *command) {
 
-    printf("Gikk inn i validationIsGood-metoden\n");
-    printf("iArgv[1] er: %s \n", iArgv[1]);
-    printf("size of command is: %d \n", (int) sizeof(command));
-
-    //Sjekker om kommando-input er større enn verdien til pekeren
-    if (strlen(iArgv[1]) >= sizeof(command)) {
-        printf("command %s is too long. \n", iArgv[1]);
-        exit(1);
-    }
-
-    //Lager en generell error melding
-    char *errorMessage;
-    errorMessage = "USAGE: ./main -[command] <filename>\n"
-            "Commands are: -add, -test, -strip\n";
-
-    //Sjekker om det er tilstrekkelig med argumenter
-    if (iArgc != 3) {
-        printf("To few arguments.\n");
-        printf("%s", errorMessage);
-        exit(1);
-    }
-
-    //Sjekke om fil eksisterer
-    FILE *file;
-    if ((file = fopen(iArgv[2], "r"))) {
-        printf("File: %s exists \n", iArgv[2]);
-        fclose(file);
-    } else {
-        printf("File %s does not exist.\n", iArgv[2]);
-        printf("%s", errorMessage);
-        exit(1);
-    }
-
-
-    //Sjekker om kommandoen er lik en av de godtatte kommandoene
-    if (strcmp(iArgv[1], "-add") == 0 || strcmp(iArgv[1], "-test") == 0 || strcmp(iArgv[1], "-strip") == 0) {
-        return true;
-    } else {
-        printf("Wrong command. \n");
-        printf("%s", errorMessage);
-        exit(1);
-    }
-
-    // Metoden returnerer false som standard
-    return false;
-}
 
 bool addChecksumToFile(char *filename, BYTE *checksum) {
     printf("Gikk inn i addChecksumToFile-metoden.\n");
@@ -369,14 +318,7 @@ long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved) {
 
 
 
-void printHashToFile(const BYTE *hash, FILE *file) {
-    int i;
-    fprintf(file, "\n");
-    for (i = 0; i < 16; i++) {
-        fprintf(file, "%02x", hash[i]);
 
-    }
-}
 
 
 void printHash(BYTE *hash) {

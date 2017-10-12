@@ -3,5 +3,5 @@ project(losning)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES main.c ValidateInput.c ValidateInput.h FileChanger.c FileChanger.h)
 add_executable(losning ${SOURCE_FILES})

@@ -1,4 +1,4 @@
-/opt/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator
+/opt/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/cmake-build-debug
+-- Build files have been written to: /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning
