@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.c
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/main.c
 stdio.h
 -
 stdbool.h
@@ -14,5 +14,21 @@ stdbool.h
 stdlib.h
 -
 string.h
+-
+md5.h
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/md5.h
+md5.c
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/md5.c
+
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/md5.c
+stdlib.h
+-
+memory.h
+-
+md5.h
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/md5.h
+
+/home/bragalund/Documents/innleveringer/Innlevering2/FileVerificator/md5.h
+stddef.h
 -
 
