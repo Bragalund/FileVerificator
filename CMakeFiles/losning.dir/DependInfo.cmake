@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/FileChanger.c.o"
+  "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/FileReader.c.o"
+  "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/FileWriter.c.o"
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/ValidateInput.c.o"
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/main.c.o"
   )

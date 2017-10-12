@@ -17,13 +17,11 @@
 //md5 -strip <filename>	- Same as test, but strip off the checksum at the end of the file.
 
 
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 #include "md5.h"
 #include "ValidateInput.h"
-#include "FileChanger.h"
+#include "FileWriter.h"
+#include "FileReader.h"
 
 
 void printHash(BYTE *hash);
@@ -34,15 +32,9 @@ BYTE *getChecksumOfString(char *chars, long amount);
 
 void getLastPartOfFile(char *filename, char *lastPartOfFile);
 
-long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved);
-
-long getSizeOfFile(char *filename);
-
-bool addChecksumToFile(char *filename, BYTE *checksum);
-
 bool removeChecksumFromFile(char *filename, char *checksum);
 
-// bool checkIfChecksumInEndOfFile(char *filename, char *hash);
+bool checkIfChecksumInEndOfFile(char *filename, char *hash);
 
 BYTE* calculateMD5Checksum(char *filename);
 
@@ -110,26 +102,7 @@ int main(int iArgc, char *iArgv[]) {
 
 
 
-bool addChecksumToFile(char *filename, BYTE *checksum) {
-    printf("Gikk inn i addChecksumToFile-metoden.\n");
-    long getPreviousSize = getSizeOfFile(filename); //Lagrer filstørrelsen for å kunne sjekke om den er annerledes etter å ha skrevet til filen
-    FILE *fp;                                       // Deklarerer filåpner
-    fp = fopen(filename, "a");                      // Bruker append på filen
-    printf("getPreviousSize er: %ld \n", getPreviousSize);
 
-    if (fp == NULL) {                                  //Sjekker om filen er NULL
-        printf("fp var NULL i addChecksumToFile.\n");
-        return false;
-    }
-    printHashToFile(checksum, fp);        // Skriver MD5 checksum til fil
-    fclose(fp);                         // Lukker fil
-
-    if (getSizeOfFile(filename) != getPreviousSize) { // sjekker om filstørrelsen har endret seg
-        printf("filstørrelsen %ld er ikke lik %ld \n", getSizeOfFile(filename), getPreviousSize);
-        return true;
-    }
-    return false;
-}
 
 bool removeChecksumFromFile(char *filename, char *checksum) {}
 
@@ -278,25 +251,8 @@ BYTE *getChecksumOfString(char *chars, long amount) {
 }
 
 
-long getSizeOfFile(char *filename) {
-    FILE *fr;
-    fr = fopen(filename, "r");
-    printf("Har gått inn i getSizeOfFile-metoden. \n");
-    long totalSizeOfFile = getSizeOfFileBySeek(fr, 0);      // 0 betyr: ikke fjern noe fra størrelsen
-    fclose(fr);                                             // Lukker filen
-    printf("Har lukket filen i getSizeOfFile-metoden \n");
-    return totalSizeOfFile;
-}
 
-long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved) {
-    printf("Har gått in i getSizeOfFileBySeek-metoden. \n");
-    fseek(fr, 0, SEEK_END);                     // Søk til slutten av filen
-    printf("ftell(fr) is: %ld \n", ftell(fr));
-    long size = ftell(fr) - sizeToBeRemoved;     // Få filpekerens verdi og fjern ønsket mengde
-    printf("size is: %ld \n", size);
-    fseek(fr, 0, SEEK_SET);                     // Søk tilbake til starten av filen
-    return size;
-}
+
 
 
 

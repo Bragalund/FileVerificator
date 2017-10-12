@@ -8,9 +8,10 @@
 //Other dependencies
 #include "md5.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 //Declare functions
 void printHashToFile(const BYTE *hash, FILE *file);
-
+bool addChecksumToFile(char *filename, BYTE *checksum);
 
 #endif //LOSNING_FILECHANGER_H

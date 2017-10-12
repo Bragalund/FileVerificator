@@ -123,32 +123,59 @@ losning/fast:
 	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/build
 .PHONY : losning/fast
 
-FileChanger.o: FileChanger.c.o
+FileReader.o: FileReader.c.o
 
-.PHONY : FileChanger.o
+.PHONY : FileReader.o
 
 # target to build an object file
-FileChanger.c.o:
-	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileChanger.c.o
-.PHONY : FileChanger.c.o
+FileReader.c.o:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileReader.c.o
+.PHONY : FileReader.c.o
 
-FileChanger.i: FileChanger.c.i
+FileReader.i: FileReader.c.i
 
-.PHONY : FileChanger.i
+.PHONY : FileReader.i
 
 # target to preprocess a source file
-FileChanger.c.i:
-	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileChanger.c.i
-.PHONY : FileChanger.c.i
+FileReader.c.i:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileReader.c.i
+.PHONY : FileReader.c.i
 
-FileChanger.s: FileChanger.c.s
+FileReader.s: FileReader.c.s
 
-.PHONY : FileChanger.s
+.PHONY : FileReader.s
 
 # target to generate assembly for a file
-FileChanger.c.s:
-	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileChanger.c.s
-.PHONY : FileChanger.c.s
+FileReader.c.s:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileReader.c.s
+.PHONY : FileReader.c.s
+
+FileWriter.o: FileWriter.c.o
+
+.PHONY : FileWriter.o
+
+# target to build an object file
+FileWriter.c.o:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileWriter.c.o
+.PHONY : FileWriter.c.o
+
+FileWriter.i: FileWriter.c.i
+
+.PHONY : FileWriter.i
+
+# target to preprocess a source file
+FileWriter.c.i:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileWriter.c.i
+.PHONY : FileWriter.c.i
+
+FileWriter.s: FileWriter.c.s
+
+.PHONY : FileWriter.s
+
+# target to generate assembly for a file
+FileWriter.c.s:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileWriter.c.s
+.PHONY : FileWriter.c.s
 
 ValidateInput.o: ValidateInput.c.o
 
@@ -213,9 +240,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... losning"
-	@echo "... FileChanger.o"
-	@echo "... FileChanger.i"
-	@echo "... FileChanger.s"
+	@echo "... FileReader.o"
+	@echo "... FileReader.i"
+	@echo "... FileReader.s"
+	@echo "... FileWriter.o"
+	@echo "... FileWriter.i"
+	@echo "... FileWriter.s"
 	@echo "... ValidateInput.o"
 	@echo "... ValidateInput.i"
 	@echo "... ValidateInput.s"

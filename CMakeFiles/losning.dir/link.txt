@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/losning.dir/main.c.o CMakeFiles/losning.dir/ValidateInput.c.o CMakeFiles/losning.dir/FileChanger.c.o  -o losning 
+/usr/bin/cc -g   CMakeFiles/losning.dir/main.c.o CMakeFiles/losning.dir/ValidateInput.c.o CMakeFiles/losning.dir/FileWriter.c.o CMakeFiles/losning.dir/FileReader.c.o  -o losning 

@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.c">
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c">
 			<Option target="losning"/>
 		</Unit>
-		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.h">
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.h">
+			<Option target="losning"/>
+		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c">
+			<Option target="losning"/>
+		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.h">
 			<Option target="losning"/>
 		</Unit>
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.c">
@@ -97,6 +103,9 @@
 			<Option target="losning"/>
 		</Unit>
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.c">
+			<Option target="losning"/>
+		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.h">
 			<Option target="losning"/>
 		</Unit>
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeLists.txt">

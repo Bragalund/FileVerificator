@@ -105,45 +105,71 @@ CMakeFiles/losning.dir/ValidateInput.c.o.provides: CMakeFiles/losning.dir/Valida
 CMakeFiles/losning.dir/ValidateInput.c.o.provides.build: CMakeFiles/losning.dir/ValidateInput.c.o
 
 
-CMakeFiles/losning.dir/FileChanger.c.o: CMakeFiles/losning.dir/flags.make
-CMakeFiles/losning.dir/FileChanger.c.o: FileChanger.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/losning.dir/FileChanger.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/losning.dir/FileChanger.c.o   -c /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.c
+CMakeFiles/losning.dir/FileWriter.c.o: CMakeFiles/losning.dir/flags.make
+CMakeFiles/losning.dir/FileWriter.c.o: FileWriter.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/losning.dir/FileWriter.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/losning.dir/FileWriter.c.o   -c /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c
 
-CMakeFiles/losning.dir/FileChanger.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/losning.dir/FileChanger.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.c > CMakeFiles/losning.dir/FileChanger.c.i
+CMakeFiles/losning.dir/FileWriter.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/losning.dir/FileWriter.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c > CMakeFiles/losning.dir/FileWriter.c.i
 
-CMakeFiles/losning.dir/FileChanger.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/losning.dir/FileChanger.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileChanger.c -o CMakeFiles/losning.dir/FileChanger.c.s
+CMakeFiles/losning.dir/FileWriter.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/losning.dir/FileWriter.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c -o CMakeFiles/losning.dir/FileWriter.c.s
 
-CMakeFiles/losning.dir/FileChanger.c.o.requires:
+CMakeFiles/losning.dir/FileWriter.c.o.requires:
 
-.PHONY : CMakeFiles/losning.dir/FileChanger.c.o.requires
+.PHONY : CMakeFiles/losning.dir/FileWriter.c.o.requires
 
-CMakeFiles/losning.dir/FileChanger.c.o.provides: CMakeFiles/losning.dir/FileChanger.c.o.requires
-	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileChanger.c.o.provides.build
-.PHONY : CMakeFiles/losning.dir/FileChanger.c.o.provides
+CMakeFiles/losning.dir/FileWriter.c.o.provides: CMakeFiles/losning.dir/FileWriter.c.o.requires
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileWriter.c.o.provides.build
+.PHONY : CMakeFiles/losning.dir/FileWriter.c.o.provides
 
-CMakeFiles/losning.dir/FileChanger.c.o.provides.build: CMakeFiles/losning.dir/FileChanger.c.o
+CMakeFiles/losning.dir/FileWriter.c.o.provides.build: CMakeFiles/losning.dir/FileWriter.c.o
+
+
+CMakeFiles/losning.dir/FileReader.c.o: CMakeFiles/losning.dir/flags.make
+CMakeFiles/losning.dir/FileReader.c.o: FileReader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/losning.dir/FileReader.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/losning.dir/FileReader.c.o   -c /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c
+
+CMakeFiles/losning.dir/FileReader.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/losning.dir/FileReader.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c > CMakeFiles/losning.dir/FileReader.c.i
+
+CMakeFiles/losning.dir/FileReader.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/losning.dir/FileReader.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c -o CMakeFiles/losning.dir/FileReader.c.s
+
+CMakeFiles/losning.dir/FileReader.c.o.requires:
+
+.PHONY : CMakeFiles/losning.dir/FileReader.c.o.requires
+
+CMakeFiles/losning.dir/FileReader.c.o.provides: CMakeFiles/losning.dir/FileReader.c.o.requires
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileReader.c.o.provides.build
+.PHONY : CMakeFiles/losning.dir/FileReader.c.o.provides
+
+CMakeFiles/losning.dir/FileReader.c.o.provides.build: CMakeFiles/losning.dir/FileReader.c.o
 
 
 # Object files for target losning
 losning_OBJECTS = \
 "CMakeFiles/losning.dir/main.c.o" \
 "CMakeFiles/losning.dir/ValidateInput.c.o" \
-"CMakeFiles/losning.dir/FileChanger.c.o"
+"CMakeFiles/losning.dir/FileWriter.c.o" \
+"CMakeFiles/losning.dir/FileReader.c.o"
 
 # External object files for target losning
 losning_EXTERNAL_OBJECTS =
 
 losning: CMakeFiles/losning.dir/main.c.o
 losning: CMakeFiles/losning.dir/ValidateInput.c.o
-losning: CMakeFiles/losning.dir/FileChanger.c.o
+losning: CMakeFiles/losning.dir/FileWriter.c.o
+losning: CMakeFiles/losning.dir/FileReader.c.o
 losning: CMakeFiles/losning.dir/build.make
 losning: CMakeFiles/losning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable losning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable losning"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/losning.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,7 +179,8 @@ CMakeFiles/losning.dir/build: losning
 
 CMakeFiles/losning.dir/requires: CMakeFiles/losning.dir/main.c.o.requires
 CMakeFiles/losning.dir/requires: CMakeFiles/losning.dir/ValidateInput.c.o.requires
-CMakeFiles/losning.dir/requires: CMakeFiles/losning.dir/FileChanger.c.o.requires
+CMakeFiles/losning.dir/requires: CMakeFiles/losning.dir/FileWriter.c.o.requires
+CMakeFiles/losning.dir/requires: CMakeFiles/losning.dir/FileReader.c.o.requires
 
 .PHONY : CMakeFiles/losning.dir/requires
 
