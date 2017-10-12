@@ -7,9 +7,11 @@
 
 //Dependencies
 #include <stdio.h>
+#include "md5.h"
 
 //Functions
 long getSizeOfFile(char *filename);
 long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved);
+BYTE* calculateMD5Checksum(char *filename);
 
 #endif //LOSNING_FILEREADER_H

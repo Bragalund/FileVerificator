@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/losning.dir/ValidateInput.c.o"
   "CMakeFiles/losning.dir/FileWriter.c.o"
   "CMakeFiles/losning.dir/FileReader.c.o"
+  "CMakeFiles/losning.dir/Util.c.o"
   "losning.pdb"
   "losning"
 )

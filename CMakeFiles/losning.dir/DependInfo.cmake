@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/FileReader.c.o"
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/FileWriter.c.o"
+  "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/Util.c.o"
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/ValidateInput.c.o"
   "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.c" "/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeFiles/losning.dir/main.c.o"
   )

@@ -4,6 +4,7 @@
 
 
 #include "FileReader.h"
+#include "main.h"
 
 long getSizeOfFile(char *filename) {
     FILE *fr;
@@ -23,4 +24,28 @@ long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved) {
     printf("size is: %ld \n", size);
     fseek(fr, 0, SEEK_SET);                     // Søk tilbake til starten av filen
     return size;
+}
+
+
+
+BYTE* calculateMD5Checksum(char *filename) {
+    printf("Gikk inn i calculateMD5Checksum-metoden \n");
+
+    long unsignedSize = getSizeOfFile(filename);           // Gjør om long til unsigned long
+    printf("Konvertert om til unsignedSize(%lu) \n", unsignedSize);
+
+    FILE *fr;
+    fr = fopen(filename, "r");                                      //Åpner fil med lese-egenskaper
+    printf("Har åpnet fil %s \n.", filename);
+
+    char *buffer;
+    buffer = (char *) malloc((unsignedSize + 1) * sizeof(BYTE));    // Allokerer nok minne for filen og \0
+    fread(buffer, unsignedSize, 1, fr);                            // Legger inn filen i det allokerte minnet
+    BYTE *hash = getChecksumOfString(buffer, unsignedSize);
+
+    fclose(fr);
+    free(buffer);
+
+    printf("Har lukket fil og frigjort minne for buffer. \n");
+    return hash;
 }

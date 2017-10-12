@@ -16,7 +16,7 @@
 //
 //md5 -strip <filename>	- Same as test, but strip off the checksum at the end of the file.
 
-
+#include "Util.h"
 #include "main.h"
 #include "md5.h"
 #include "ValidateInput.h"
@@ -157,29 +157,7 @@ bool removeChecksumFromFile(char *filename, char *checksum) {}
 //    return true;
 //}
 
-void getLastPartOfFile(char *filename, char *lastPartOfFile){
-    FILE *fr;
-    fr = fopen(filename, "r");
 
-   static const long max_len = 32 + 1;
-
-    char buf[max_len + 1];
-/* now read that many bytes from the end of the file */
-    fseek(fr, -max_len, SEEK_END);
-    ssize_t len = fread( buf, max_len, 1, fr);
-    fclose(fr);
-/* don't forget the nul terminator */
-    buf[len] = '\0';
-
-   // fseek(fr, 0, SEEK_SET);     //Setter pekeren til filen til starten av filen
-
-/* and find the last newline character (there must be one, right?) */
-    char *last_newline = strrchr(buf, '\n');
-    char *lastLine = last_newline+1;
-    strcpy(lastPartOfFile, lastLine);
-    printf("last_newline: %s \n", last_newline);
-    //printf("last_line: %s \n", lastPartOfFile);
-}
 
 //
 //char *getLastPartOfFile(FILE *fr, long sizeOfHash) {
@@ -205,50 +183,7 @@ void getLastPartOfFile(char *filename, char *lastPartOfFile){
 //}
 
 
-BYTE* calculateMD5Checksum(char *filename) {
-    printf("Gikk inn i calculateMD5Checksum-metoden \n");
 
-    long unsignedSize = getSizeOfFile(filename);           // Gjør om long til unsigned long
-    printf("Konvertert om til unsignedSize(%lu) \n", unsignedSize);
-
-    FILE *fr;
-    fr = fopen(filename, "r");                                      //Åpner fil med lese-egenskaper
-    printf("Har åpnet fil %s \n.", filename);
-
-    char *buffer;
-    buffer = (char *) malloc((unsignedSize + 1) * sizeof(BYTE));    // Allokerer nok minne for filen og \0
-    fread(buffer, unsignedSize, 1, fr);                            // Legger inn filen i det allokerte minnet
-    BYTE *hash = getChecksumOfString(buffer, unsignedSize);
-
-    fclose(fr);
-    free(buffer);
-
-    printf("Har lukket fil og frigjort minne for buffer. \n");
-    return hash;
-}
-
-BYTE *getChecksumOfString(char *chars, long amount) {
-    // Lager MD5-objekt
-    printf("Prøver å deklarerere *ctx \n");
-    MD5_CTX *ctx = malloc(sizeof(MD5_CTX));
-    md5_init(ctx);
-    printf("Har initialisert ctx \n");
-    if (!ctx) {   // Avslutter om ctx-objekt er NULL
-        printf("ctx var NULL \n");
-        exit(1);
-    }
-    printf("Har lagt filen inn i buffer.\n");
-
-    md5_update(ctx, (const BYTE *) chars, amount);               // Lager Hash av fil
-    printf("Har lagt til chars i ctx med MD5_update-metoden \n");
-    BYTE *hashBytes = malloc(16 * sizeof(BYTE));
-    md5_final(ctx, hashBytes);
-    printf("Har allokert minne til hashBytes \n");
-    printf("hashBytes: \n");
-    printHash(hashBytes);
-    free(ctx);
-    return hashBytes;
-}
 
 
 
@@ -277,12 +212,7 @@ BYTE *getChecksumOfString(char *chars, long amount) {
 
 
 
-void printHash(BYTE *hash) {
-    int i;
-    for (i = 0; i < 16; i++)
-        printf("%02x", hash[i]);
-    printf("\n");
-}
+
 
 bool stripMD5ChecksumFromFile(FILE file) {}
 

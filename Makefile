@@ -177,6 +177,33 @@ FileWriter.c.s:
 	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/FileWriter.c.s
 .PHONY : FileWriter.c.s
 
+Util.o: Util.c.o
+
+.PHONY : Util.o
+
+# target to build an object file
+Util.c.o:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/Util.c.o
+.PHONY : Util.c.o
+
+Util.i: Util.c.i
+
+.PHONY : Util.i
+
+# target to preprocess a source file
+Util.c.i:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/Util.c.i
+.PHONY : Util.c.i
+
+Util.s: Util.c.s
+
+.PHONY : Util.s
+
+# target to generate assembly for a file
+Util.c.s:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/Util.c.s
+.PHONY : Util.c.s
+
 ValidateInput.o: ValidateInput.c.o
 
 .PHONY : ValidateInput.o
@@ -246,6 +273,9 @@ help:
 	@echo "... FileWriter.o"
 	@echo "... FileWriter.i"
 	@echo "... FileWriter.s"
+	@echo "... Util.o"
+	@echo "... Util.i"
+	@echo "... Util.s"
 	@echo "... ValidateInput.o"
 	@echo "... ValidateInput.i"
 	@echo "... ValidateInput.s"

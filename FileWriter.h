@@ -13,5 +13,6 @@
 //Declare functions
 void printHashToFile(const BYTE *hash, FILE *file);
 bool addChecksumToFile(char *filename, BYTE *checksum);
+void getLastPartOfFile(char *filename, char *lastPartOfFile);
 
 #endif //LOSNING_FILECHANGER_H

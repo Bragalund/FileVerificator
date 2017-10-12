@@ -96,6 +96,12 @@
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.h">
 			<Option target="losning"/>
 		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.c">
+			<Option target="losning"/>
+		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.h">
+			<Option target="losning"/>
+		</Unit>
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.c">
 			<Option target="losning"/>
 		</Unit>
