@@ -6,8 +6,8 @@
 #define LOSNING_FILEREADER_H
 
 //Dependencies
-#include <stdio.h>
 #include "md5.h"
+#include "main.h"
 
 //Functions
 long getSizeOfFile(char *filename);

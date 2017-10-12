@@ -7,8 +7,8 @@
 
 //Other dependencies
 #include "md5.h"
-#include <stdio.h>
-#include <stdbool.h>
+#include "main.h"
+
 
 //Declare functions
 void printHashToFile(const BYTE *hash, FILE *file);

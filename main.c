@@ -24,19 +24,12 @@
 #include "FileReader.h"
 
 
-void printHash(BYTE *hash);
-
 //char *getHash(const BYTE *hash, char hashAsString[]);
 
-BYTE *getChecksumOfString(char *chars, long amount);
-
-void getLastPartOfFile(char *filename, char *lastPartOfFile);
 
 bool removeChecksumFromFile(char *filename, char *checksum);
 
 bool checkIfChecksumInEndOfFile(char *filename, char *hash);
-
-BYTE* calculateMD5Checksum(char *filename);
 
 bool stripMD5ChecksumFromFile(FILE file);
 

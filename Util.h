@@ -10,4 +10,5 @@
 
 BYTE *getChecksumOfString(char *chars, long amount);
 void printHash(BYTE *hash);
+
 #endif //LOSNING_UTIL_H

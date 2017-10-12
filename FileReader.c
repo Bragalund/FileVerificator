@@ -4,7 +4,7 @@
 
 
 #include "FileReader.h"
-#include "main.h"
+#include "Util.h"
 
 long getSizeOfFile(char *filename) {
     FILE *fr;
