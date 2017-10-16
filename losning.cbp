@@ -114,6 +114,12 @@
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.h">
 			<Option target="losning"/>
 		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/md5.c">
+			<Option target="losning"/>
+		</Unit>
+		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/md5.h">
+			<Option target="losning"/>
+		</Unit>
 		<Unit filename="/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

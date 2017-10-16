@@ -59,7 +59,7 @@ int main(int iArgc, char *iArgv[]) {
         printf("The hash is in the main-method is: \n");
         printHash(hash);
 
-        getLastPartOfFile(filename, lastPartOfFile);
+        getLast32CharsOfFile(filename, lastPartOfFile);
         //checkIfChecksumInEndOfFile(filename, hash);
         printf("Har laget MD5_CTX-objekt og er i main\n");
 

@@ -49,3 +49,28 @@ BYTE* calculateMD5Checksum(char *filename) {
     printf("Har lukket fil og frigjort minne for buffer. \n");
     return hash;
 }
+
+void getLast32CharsOfFile(char *filename, char *lastPartOfFile){
+    FILE *fr;
+    fr = fopen(filename, "r");
+
+    static const long max_len = 44 + 1;
+
+    char buf[max_len + 1];
+/* now read that many bytes from the end of the file */
+    fseek(fr, -max_len, SEEK_END);
+    ssize_t len = fread( buf, max_len, 1, fr);
+    fseek(fr, 0, SEEK_SET);     //Setter pekeren til filen til starten av filen
+    fclose(fr);
+/* don't forget the nul terminator */
+    buf[len] = '\0';
+
+//
+
+/* and find the last newline character (there must be one, right?) */
+    char *last_newline = strrchr(buf, '\n');
+    char *lastLine = last_newline;
+    strcpy(lastPartOfFile, lastLine);
+    printf("last_newline: %s \n", last_newline);
+    printf("last_line: %s \n", lastPartOfFile);
+}

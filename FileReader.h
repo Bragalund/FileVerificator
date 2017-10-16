@@ -13,5 +13,6 @@
 long getSizeOfFile(char *filename);
 long getSizeOfFileBySeek(FILE *fr, long sizeToBeRemoved);
 BYTE* calculateMD5Checksum(char *filename);
+void getLast32CharsOfFile(char *filename, char *lastPartOfFile);
 
 #endif //LOSNING_FILEREADER_H

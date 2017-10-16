@@ -2,7 +2,6 @@
 // Created by bragalund on 12.10.17.
 //
 
-#include <printf.h>
 #include "Util.h"
 #include "md5.h"
 #include "main.h"

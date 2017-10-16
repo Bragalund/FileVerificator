@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/losning.dir/FileWriter.c.o"
   "CMakeFiles/losning.dir/FileReader.c.o"
   "CMakeFiles/losning.dir/Util.c.o"
+  "CMakeFiles/losning.dir/md5.c.o"
   "losning.pdb"
   "losning"
 )

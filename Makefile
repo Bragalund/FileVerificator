@@ -258,6 +258,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/main.c.s
 .PHONY : main.c.s
 
+md5.o: md5.c.o
+
+.PHONY : md5.o
+
+# target to build an object file
+md5.c.o:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/md5.c.o
+.PHONY : md5.c.o
+
+md5.i: md5.c.i
+
+.PHONY : md5.i
+
+# target to preprocess a source file
+md5.c.i:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/md5.c.i
+.PHONY : md5.c.i
+
+md5.s: md5.c.s
+
+.PHONY : md5.s
+
+# target to generate assembly for a file
+md5.c.s:
+	$(MAKE) -f CMakeFiles/losning.dir/build.make CMakeFiles/losning.dir/md5.c.s
+.PHONY : md5.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +309,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... md5.o"
+	@echo "... md5.i"
+	@echo "... md5.s"
 .PHONY : help
 
 
