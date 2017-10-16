@@ -41,26 +41,18 @@ int main(int iArgc, char *iArgv[]) {
 
     char *command = malloc(6 * sizeof(char));   // Definerer peker til kommando
     char *lastPartOfFile= malloc(100 * sizeof(char));
-    long *sizeOfHash = malloc(32 * sizeof(long));
-
-    printf("Allocated memory for the *command\n");
 
     if (validationIsGood(iArgc, iArgv, command)) {
         strcpy(command, iArgv[1]);
-        printf("Command is: %s\n", command);
 
         char *filename = malloc(sizeof(iArgv[2]));
         strcpy(filename, iArgv[2]);
 
-        printf("Filnavnet er: %s \n", filename);
-
         BYTE *hash;
         hash = calculateMD5Checksum(filename);
-        printf("The hash is in the main-method is: \n");
-        printHash(hash);
 
         getLast32CharsOfFile(filename, lastPartOfFile);
-        //checkIfChecksumInEndOfFile(filename, hash);
+
         printf("Har laget MD5_CTX-objekt og er i main\n");
 
         if (strcmp(command, "-add") == 0) {
@@ -73,6 +65,12 @@ int main(int iArgc, char *iArgv[]) {
 
         } else if (strcmp(command, "-test") == 0) {
             printf("-test command was executed. \n");
+            if(checkIfChecksumInEndOfFile(filename, lastPartOfFile)){
+                printf("There was a checksum in the end of the file. \n");
+            }
+            else{
+                printf("NO checksum in the end of the file. \n");
+            }
 
 
         } else if (strcmp(command, "-strip") == 0) {
@@ -94,95 +92,7 @@ int main(int iArgc, char *iArgv[]) {
 }
 
 
-
-
-
 bool removeChecksumFromFile(char *filename, char *checksum) {}
-
-//
-//bool checkIfChecksumInEndOfFile(char *filename, char *hash) {
-//    printf("Entered checkIfChecksumInEndOfFile.\n");
-//    FILE *fr;
-//    fr = fopen(filename, "r");              // åpner fil for å bli lest
-//    long sizeOfHash = sizeof(hash)*4+1;     // finner størrelsen av hashen som er
-//    char *lastStringFile = getLastPartOfFile(fr, sizeOfHash);
-//
-//    //Kalkuler egen hash fra resten av filen -------------
-//    printf("Prøver å kalkulere egen hash basert på fil... \n");
-//    long sizeOfUnhashedFile = getSizeOfFile(filename) - sizeOfHash;
-//
-//    char *buffer;
-//    buffer = (char *) malloc((sizeOfUnhashedFile + 1) * sizeof(BYTE));    // Allokerer nok minne for filen og \0
-//    fread(buffer, sizeOfUnhashedFile, 1, fr);                            // Legger inn filen i det allokerte minnet
-//
-//    char *ownHash; //= malloc(16 * sizeof(BYTE)+1);
-//    ownHash = getChecksumOfString(buffer, sizeOfUnhashedFile);
-//    printf("ownHash er: \n");
-//    printHash(ownHash);
-//    free(buffer);
-//    buffer = NULL;
-//
-//    fclose(fr);
-//    printf("Har lukket filen og skal sammenligne hash og lastStringFile. \n");
-//
-//
-//    // TODO Fungerer ikke fordi jeg sammenligner hashen fra hele filen og den siste delen av filen
-//    // TODO Burde sjekke bakerste del av filen opp mot egenkalkulert hash fra resten av filen.
-//    if (strcmp(ownHash, lastStringFile) == 0) {
-//        printf("Hashene var de samme i checkIfChecksumInEndOfFile-metoden. \n");
-//        printf("Den opprinnelige hashen: ");
-//        printHash(ownHash);
-//        printf("Den egenlagde hashen: ");
-//        printHash(lastStringFile);
-//        //free(lastStringFile);
-//        return true;
-//    }
-//    printf("Hashene var ikke det samme. \n");
-//    printf("Den egenproduserte hashen var: \n");
-//    printHash(ownHash);
-//    printf("Den bakerste delen av filen var: \n");
-//    printHash(lastStringFile);
-//    printf("Hashene var ikke det samme i checkIfChecksumInEndOfFile. \n");
-//
-//    free(ownHash);
-//    //free(lastStringFile);
-//    //printf("Har frigjort lastStringFile. \n");
-//    return true;
-//}
-
-
-
-//
-//char *getLastPartOfFile(FILE *fr, long sizeOfHash) {
-//    char *someBuffer = (char *) malloc(sizeof(sizeOfHash) +1);
-//    printf("Er inni getLastPartOfFile. \n");
-//    printf("sizeofHash er %ld \n", sizeOfHash);
-//    fseek(fr, -sizeOfHash, SEEK_END);                   // Søk til slutten av filen minus størrelsen på hashen
-//    printf("Stopped pointer at %ld \n", ftell(fr));
-//    //TODO Les hele den siste hashen. Den siste bokstaven i hashen mangler.
-//    fread(someBuffer, sizeOfHash-1, 1, fr);     // Leser bytes på enden av filen
-//    // (size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream))
-//    /*
-//             ptr − This is the pointer to a block of memory with a minimum size of size*nmemb bytes.
-//             size − This is the size in bytes of each element to be read.
-//             nmemb − This is the number of elements, each one with a size of size bytes.
-//             stream − This is the pointer to a FILE object that specifies an input stream.
-//    */
-//    printf("someBuffer er %s ", someBuffer);
-//    //printHash(someBuffer);
-//    fseek(fr, 0, SEEK_SET);     //Setter pekeren til filen til starten av filen
-//
-//    return someBuffer;
-//}
-
-
-
-
-
-
-
-
-
 
 
 //char *getHash(const BYTE *hash, char hashAsString[]) {
@@ -198,13 +108,6 @@ bool removeChecksumFromFile(char *filename, char *checksum) {}
 //    //}
 //    return hashAsString;
 //}
-
-
-
-
-
-
-
 
 
 bool stripMD5ChecksumFromFile(FILE file) {}

@@ -13,6 +13,7 @@ CMakeFiles/losning.dir/FileWriter.c.o: FileWriter.h
 CMakeFiles/losning.dir/FileWriter.c.o: main.h
 CMakeFiles/losning.dir/FileWriter.c.o: md5.h
 
+CMakeFiles/losning.dir/Util.c.o: FileReader.h
 CMakeFiles/losning.dir/Util.c.o: Util.c
 CMakeFiles/losning.dir/Util.c.o: Util.h
 CMakeFiles/losning.dir/Util.c.o: main.h

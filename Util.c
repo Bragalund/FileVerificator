@@ -5,6 +5,7 @@
 #include "Util.h"
 #include "md5.h"
 #include "main.h"
+#include "FileReader.h"
 
 
 BYTE *getChecksumOfString(char *chars, long amount) {
@@ -36,4 +37,54 @@ void printHash(BYTE *hash) {
     for (i = 0; i < 16; i++)
         printf("%02x", hash[i]);
     printf("\n");
+}
+
+
+// TODO lag denne metoden!
+bool checkIfChecksumInEndOfFile(char *filename, char *lastPartOfFile) {
+
+    printf("Entered checkIfChecksumInEndOfFile.\n");
+    FILE *fr;
+    fr = fopen(filename, "r");              // åpner fil for å bli lest
+    long sizeOfHash = sizeof(lastPartOfFile)*4+1;     // finner størrelsen av hashen som er
+
+    //Kalkuler egen hash fra resten av filen
+    printf("Prøver å kalkulere egen hash basert på fil... \n");
+    long sizeOfUnhashedFile = getSizeOfFile(filename) - sizeOfHash;
+
+    char *buffer;
+    buffer = (char *) malloc((sizeOfUnhashedFile + 1) * sizeof(BYTE));    // Allokerer nok minne for filen og \0
+    fread(buffer, sizeOfUnhashedFile, 1, fr);                            // Legger inn filen i det allokerte minnet
+
+    char *ownHash; //= malloc(16 * sizeof(BYTE)+1);
+    ownHash = getChecksumOfString(buffer, sizeOfUnhashedFile);
+    printf("ownHash er: \n");
+    printHash(ownHash);
+    free(buffer);
+    buffer = NULL;
+
+    fclose(fr);
+    printf("Har lukket filen og skal sammenligne hash og lastStringFile. \n");
+
+
+    // TODO Fungerer ikke fordi jeg sammenligner hashen fra hele filen og den siste delen av filen
+    // TODO Burde sjekke bakerste del av filen opp mot egenkalkulert hash fra resten av filen.
+    if (strcmp(ownHash, lastPartOfFile) == 0) {
+        printf("Hashene var de samme i checkIfChecksumInEndOfFile-metoden. \n");
+        printf("Den opprinnelige hashen: ");
+        printHash(ownHash);
+        printf("Den egenlagde hashen: ");
+        printf("%s \n",lastPartOfFile);
+        //free(lastStringFile);
+        return true;
+    }
+    printf("Hashene var ikke det samme. \n");
+    printf("Den egenproduserte hashen var: \n");
+    printHash(ownHash);
+    printf("Den bakerste delen av filen var: \n");
+    printf("%s \n",lastPartOfFile);
+    printf("Hashene var ikke det samme i checkIfChecksumInEndOfFile. \n");
+
+    free(ownHash);
+    return true;
 }
