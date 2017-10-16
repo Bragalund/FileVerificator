@@ -40,7 +40,6 @@ void printHash(BYTE *hash) {
 }
 
 
-// TODO lag denne metoden!
 bool checkIfChecksumInEndOfFile(char *filename, char *lastPartOfFile) {
 
     printf("Entered checkIfChecksumInEndOfFile.\n");
@@ -56,26 +55,27 @@ bool checkIfChecksumInEndOfFile(char *filename, char *lastPartOfFile) {
     buffer = (char *) malloc((sizeOfUnhashedFile + 1) * sizeof(BYTE));    // Allokerer nok minne for filen og \0
     fread(buffer, sizeOfUnhashedFile, 1, fr);                            // Legger inn filen i det allokerte minnet
 
-    char *ownHash; //= malloc(16 * sizeof(BYTE)+1);
+    BYTE *ownHash;
     ownHash = getChecksumOfString(buffer, sizeOfUnhashedFile);
     printf("ownHash er: \n");
     printHash(ownHash);
     free(buffer);
-    buffer = NULL;
 
     fclose(fr);
     printf("Har lukket filen og skal sammenligne hash og lastStringFile. \n");
 
+    char ownHashAsString[33];
+    for(int i =0; i<16; i++) {
+        sprintf(ownHashAsString+(i*2), "%02x", ownHash[i]);
+    }
+    ownHashAsString[33] = "\0";
 
-    // TODO Fungerer ikke fordi jeg sammenligner hashen fra hele filen og den siste delen av filen
-    // TODO Burde sjekke bakerste del av filen opp mot egenkalkulert hash fra resten av filen.
-    if (strcmp(ownHash, lastPartOfFile) == 0) {
+    if (strcmp(ownHashAsString, lastPartOfFile) == 0) {
         printf("Hashene var de samme i checkIfChecksumInEndOfFile-metoden. \n");
         printf("Den opprinnelige hashen: ");
         printHash(ownHash);
         printf("Den egenlagde hashen: ");
         printf("%s \n",lastPartOfFile);
-        //free(lastStringFile);
         return true;
     }
     printf("Hashene var ikke det samme. \n");
@@ -84,7 +84,5 @@ bool checkIfChecksumInEndOfFile(char *filename, char *lastPartOfFile) {
     printf("Den bakerste delen av filen var: \n");
     printf("%s \n",lastPartOfFile);
     printf("Hashene var ikke det samme i checkIfChecksumInEndOfFile. \n");
-
-    free(ownHash);
-    return true;
+    return false;
 }

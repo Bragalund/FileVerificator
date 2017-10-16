@@ -53,7 +53,7 @@ BYTE* calculateMD5Checksum(char *filename) {
 void getLast32CharsOfFile(char *filename, char *lastPartOfFile){
     FILE *fr;
     fr = fopen(filename, "r");
-    static const long max_len = 32+1;         //
+    static const long max_len = 32+1;
 
     char buf[max_len + 1];              // Lager buffer for å kunne lese inn deler av filen i
 

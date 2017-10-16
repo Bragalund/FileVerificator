@@ -78,7 +78,7 @@ int main(int iArgc, char *iArgv[]) {
 
         }
 
-        // Ingen else, for sikkerhets skyld.
+        // Ingen else
 
         free(hash);
         free(filename);
