@@ -76,6 +76,7 @@ int main(int iArgc, char *iArgv[]) {
         } else if (strcmp(command, "-strip") == 0) {
             printf("-strip command was executed. \n");
 
+
         }
 
         // Ingen else
