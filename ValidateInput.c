@@ -7,10 +7,6 @@
 
 bool validationIsGood(int iArgc, char *iArgv[], char *command) {
 
-    printf("Gikk inn i validationIsGood-metoden\n");
-    printf("iArgv[1] er: %s \n", iArgv[1]);
-    printf("size of command is: %d \n", (int) sizeof(command));
-
     //Sjekker om kommando-input er større enn verdien til pekeren
     if (strlen(iArgv[1]) >= sizeof(command)) {
         printf("command %s is too long. \n", iArgv[1]);
@@ -32,7 +28,6 @@ bool validationIsGood(int iArgc, char *iArgv[], char *command) {
     //Sjekke om fil eksisterer
     FILE *file;
     if ((file = fopen(iArgv[2], "r"))) {
-        printf("File: %s exists \n", iArgv[2]);
         fclose(file);
     } else {
         printf("File %s does not exist.\n", iArgv[2]);

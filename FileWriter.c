@@ -29,28 +29,25 @@ bool addChecksumToFile(char *filename, BYTE *checksum) {
     fclose(fp);                         // Lukker fil
 
     if (getSizeOfFile(filename) != getPreviousSize) { // sjekker om filstørrelsen har endret seg
-        //printf("filstørrelsen %ld er ikke lik %ld \n", getSizeOfFile(filename), getPreviousSize);
         return true;
     }
     return false;
 }
 
 bool removeChecksumFromFile(char *filename) {
-    //printf("Entered removeChecksumFromFile. \n");
     long sizeToRemove = getSizeOfFile(filename);
-    sizeToRemove = sizeToRemove-32;
+    sizeToRemove = sizeToRemove-33;
 
     FILE *file;
     file = fopen(filename, "r+");
 
 
     if(ftruncate(fileno(file), sizeToRemove) == 0){
-        printf("ftruncate worked!!! \n");
         fclose(file);
         return true;
     }
     fclose(file);
-    printf("Something went wrong went removing checksum. \n");
+    printf("Something went wrong when removing checksum. \n");
     return false;
 }
 
