@@ -27,8 +27,6 @@
 //char *getHash(const BYTE *hash, char hashAsString[]);
 
 
-bool removeChecksumFromFile(char *filename, char *checksum);
-
 bool checkIfChecksumInEndOfFile(char *filename, char *hash);
 
 bool stripMD5ChecksumFromFile(FILE file);
@@ -64,6 +62,7 @@ int main(int iArgc, char *iArgv[]) {
             }
 
         } else if (strcmp(command, "-test") == 0) {
+
             printf("-test command was executed. \n");
             if(checkIfChecksumInEndOfFile(filename, lastPartOfFile)){
                 printf("There was a checksum in the end of the file. \n");
@@ -72,10 +71,19 @@ int main(int iArgc, char *iArgv[]) {
                 printf("NO checksum in the end of the file. \n");
             }
 
-
         } else if (strcmp(command, "-strip") == 0) {
-            printf("-strip command was executed. \n");
 
+            printf("-strip command was executed. \n");
+            if(checkIfChecksumInEndOfFile(filename, lastPartOfFile)){
+                if(removeChecksumFromFile(filename)){
+                    printf("Checksum was removed from file. \n");
+                }
+                else{
+                    printf("Something went wrong when removing checksum.\n");
+                }
+            }else{
+                printf("No checksum in end of file.\n Nothing to remove. \n");
+            }
 
         }
 
@@ -93,7 +101,7 @@ int main(int iArgc, char *iArgv[]) {
 }
 
 
-bool removeChecksumFromFile(char *filename, char *checksum) {}
+
 
 
 //char *getHash(const BYTE *hash, char hashAsString[]) {

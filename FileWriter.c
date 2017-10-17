@@ -17,11 +17,9 @@ void printHashToFile(const BYTE *hash, FILE *file) {
 }
 
 bool addChecksumToFile(char *filename, BYTE *checksum) {
-    printf("Gikk inn i addChecksumToFile-metoden.\n");
     long getPreviousSize = getSizeOfFile(filename);  //Lagrer filstørrelsen for å kunne sjekke om den er annerledes etter å ha skrevet til filen
     FILE *fp;                                        // Deklarerer filåpner
     fp = fopen(filename, "a");                       // Bruker append på filen
-    printf("getPreviousSize er: %ld \n", getPreviousSize);
 
     if (fp == NULL) {                                  //Sjekker om filen er NULL
         printf("fp var NULL i addChecksumToFile.\n");
@@ -31,9 +29,28 @@ bool addChecksumToFile(char *filename, BYTE *checksum) {
     fclose(fp);                         // Lukker fil
 
     if (getSizeOfFile(filename) != getPreviousSize) { // sjekker om filstørrelsen har endret seg
-        printf("filstørrelsen %ld er ikke lik %ld \n", getSizeOfFile(filename), getPreviousSize);
+        //printf("filstørrelsen %ld er ikke lik %ld \n", getSizeOfFile(filename), getPreviousSize);
         return true;
     }
+    return false;
+}
+
+bool removeChecksumFromFile(char *filename) {
+    //printf("Entered removeChecksumFromFile. \n");
+    long sizeToRemove = getSizeOfFile(filename);
+    sizeToRemove = sizeToRemove-32;
+
+    FILE *file;
+    file = fopen(filename, "r+");
+
+
+    if(ftruncate(fileno(file), sizeToRemove) == 0){
+        printf("ftruncate worked!!! \n");
+        fclose(file);
+        return true;
+    }
+    fclose(file);
+    printf("Something went wrong went removing checksum. \n");
     return false;
 }
 

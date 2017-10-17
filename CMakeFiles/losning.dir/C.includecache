@@ -29,6 +29,8 @@ md5.h
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/md5.h
 main.h
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.h
+unistd.h
+-
 
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.c
 Util.h
