@@ -3,19 +3,25 @@
 
 CMakeFiles/losning.dir/FileReader.c.o: FileReader.c
 CMakeFiles/losning.dir/FileReader.c.o: FileReader.h
+CMakeFiles/losning.dir/FileReader.c.o: FileWriter.h
 CMakeFiles/losning.dir/FileReader.c.o: Util.h
+CMakeFiles/losning.dir/FileReader.c.o: ValidateInput.h
 CMakeFiles/losning.dir/FileReader.c.o: main.h
 CMakeFiles/losning.dir/FileReader.c.o: md5.h
 
 CMakeFiles/losning.dir/FileWriter.c.o: FileReader.h
 CMakeFiles/losning.dir/FileWriter.c.o: FileWriter.c
 CMakeFiles/losning.dir/FileWriter.c.o: FileWriter.h
+CMakeFiles/losning.dir/FileWriter.c.o: Util.h
+CMakeFiles/losning.dir/FileWriter.c.o: ValidateInput.h
 CMakeFiles/losning.dir/FileWriter.c.o: main.h
 CMakeFiles/losning.dir/FileWriter.c.o: md5.h
 
 CMakeFiles/losning.dir/Util.c.o: FileReader.h
+CMakeFiles/losning.dir/Util.c.o: FileWriter.h
 CMakeFiles/losning.dir/Util.c.o: Util.c
 CMakeFiles/losning.dir/Util.c.o: Util.h
+CMakeFiles/losning.dir/Util.c.o: ValidateInput.h
 CMakeFiles/losning.dir/Util.c.o: main.h
 CMakeFiles/losning.dir/Util.c.o: md5.h
 

@@ -63,18 +63,8 @@ stdlib.h
 -
 
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.c
-Util.h
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.h
 main.h
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.h
-md5.h
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/md5.h
-ValidateInput.h
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.h
-FileWriter.h
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.h
-FileReader.h
-/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.h
 
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/main.h
 stdio.h
@@ -85,6 +75,14 @@ stdlib.h
 -
 string.h
 -
+Util.h
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/Util.h
+ValidateInput.h
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/ValidateInput.h
+FileWriter.h
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileWriter.h
+FileReader.h
+/home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/FileReader.h
 
 /home/bragalund/Documents/C/ovingsoppgaver/Leksjon6/losning/md5.c
 stdlib.h

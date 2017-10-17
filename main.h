@@ -9,5 +9,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Util.h"
+#include "ValidateInput.h"
+#include "FileWriter.h"
+#include "FileReader.h"
 
 #endif //LOSNING_MAIN_H

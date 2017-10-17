@@ -1,10 +1,4 @@
-#include "Util.h"
 #include "main.h"
-#include "md5.h"
-#include "ValidateInput.h"
-#include "FileWriter.h"
-#include "FileReader.h"
-
 
 int main(int iArgc, char *iArgv[]) {
 
@@ -24,7 +18,10 @@ int main(int iArgc, char *iArgv[]) {
         getLast32CharsOfFile(filename, lastPartOfFile);
 
         if (strcmp(command, "-add") == 0) {
-            if (addChecksumToFile(filename, hash)) {
+            if(checkIfChecksumInEndOfFile(filename, lastPartOfFile)){
+                printf("Already a correct checksum in this file. \n");
+            }
+            else if (addChecksumToFile(filename, hash)) {
                 printf("Checksum was printed to file.\n");
             } else {
                 printf("Something went wrong when printing hash to file.\n");
@@ -49,12 +46,11 @@ int main(int iArgc, char *iArgv[]) {
                     printf("Something went wrong when removing checksum.\n");
                 }
             }else{
-                printf("No checksum in end of file.\n Nothing to remove. \n");
+                printf("No checksum in end of file.\nNothing to remove. \n");
             }
 
         }
 
-        // Ingen else
 
         free(hash);
         free(filename);
