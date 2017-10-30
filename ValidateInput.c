@@ -7,11 +7,7 @@
 
 bool validationIsGood(int iArgc, char *iArgv[], char *command) {
 
-    //Sjekker om kommando-input er større enn verdien til pekeren
-    if (strlen(iArgv[1]) >= sizeof(command)) {
-        printf("command %s is too long. \n", iArgv[1]);
-        exit(1);
-    }
+
 
     //Lager en generell error melding
     char *errorMessage;
@@ -22,6 +18,12 @@ bool validationIsGood(int iArgc, char *iArgv[], char *command) {
     if (iArgc != 3) {
         printf("To few arguments.\n");
         printf("%s", errorMessage);
+        exit(1);
+    }
+
+    //Sjekker om kommando-input er større enn verdien til pekeren
+    if (strlen(iArgv[1]) >= sizeof(command)) {
+        printf("command %s is too long. \n", iArgv[1]);
         exit(1);
     }
 
